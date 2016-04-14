@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-</Context>
+<Context>
     <WatchedResource>WEB-INF/web.xml</WatchedResource>
     <Valve className="com.orangefunction.tomcat.redissessions.RedisSessionHandlerValve" />
     <Manager className="com.orangefunction.tomcat.redissessions.RedisSessionManager"

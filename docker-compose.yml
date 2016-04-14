@@ -8,23 +8,41 @@ portal:
    - tomcat1:tomcat1
    - tomcat2:tomcat2
    - tomcat3:tomcat3
+redis:
+  image: redis
 tomcat1:
   image: tomcat
   volumes:
-   - /home/docker/docker-cluster/cluster/server.xml:/usr/local/tomcat/conf/server.xml
+#   - /home/docker/docker-cluster/cluster/server.xml:/usr/local/tomcat/conf/server.xml
    - /home/docker/docker-cluster/cluster/ROOT:/usr/local/tomcat/webapps/ROOT
    - /home/docker/docker-cluster/cluster/tomcat-users.xml:/usr/local/tomcat/conf/tomcat-users.xml
+   - /home/docker/docker-cluster/cluster/context.xml:/usr/local/tomcat/conf/context.xml
+   - /home/docker/docker-cluster/cluster/lib/commons-pool2-2.2.jar:/usr/local/tomcat/lib/commons-pool2-2.2.jar
+   - /home/docker/docker-cluster/cluster/lib/jedis-2.5.2.jar:/usr/local/tomcat/lib/jedis-2.5.2.jar
+   - /home/docker/docker-cluster/cluster/lib/tomcat-redis-session-manager-2.0.0.jar:/usr/local/tomcat/lib/tomcat-redis-session-manager-2.0.0.jar
+  links:
+   - redis
 tomcat2:
   image: tomcat
   volumes:
-   - /home/docker/docker-cluster/cluster/server.xml:/usr/local/tomcat/conf/server.xml
+#   - /home/docker/docker-cluster/cluster/server.xml:/usr/local/tomcat/conf/server.xml
    - /home/docker/docker-cluster/cluster/ROOT:/usr/local/tomcat/webapps/ROOT
    - /home/docker/docker-cluster/cluster/tomcat-users.xml:/usr/local/tomcat/conf/tomcat-users.xml
+   - /home/docker/docker-cluster/cluster/context.xml:/usr/local/tomcat/conf/context.xml
+   - /home/docker/docker-cluster/cluster/lib/commons-pool2-2.2.jar:/usr/local/tomcat/lib/commons-pool2-2.2.jar
+   - /home/docker/docker-cluster/cluster/lib/jedis-2.5.2.jar:/usr/local/tomcat/lib/jedis-2.5.2.jar
+   - /home/docker/docker-cluster/cluster/lib/tomcat-redis-session-manager-2.0.0.jar:/usr/local/tomcat/lib/tomcat-redis-session-manager-2.0.0.j
+  links:
+   - redis
 tomcat3:
   image: tomcat
   volumes:
-   - /home/docker/docker-cluster/cluster/server.xml:/usr/local/tomcat/conf/server.xml
+#   - /home/docker/docker-cluster/cluster/server.xml:/usr/local/tomcat/conf/server.xml
    - /home/docker/docker-cluster/cluster/ROOT:/usr/local/tomcat/webapps/ROOT
    - /home/docker/docker-cluster/cluster/tomcat-users.xml:/usr/local/tomcat/conf/tomcat-users.xml
-
-
+   - /home/docker/docker-cluster/cluster/context.xml:/usr/local/tomcat/conf/context.xml
+   - /home/docker/docker-cluster/cluster/lib/commons-pool2-2.2.jar:/usr/local/tomcat/lib/commons-pool2-2.2.jar
+   - /home/docker/docker-cluster/cluster/lib/jedis-2.5.2.jar:/usr/local/tomcat/lib/jedis-2.5.2.jar
+   - /home/docker/docker-cluster/cluster/lib/tomcat-redis-session-manager-2.0.0.jar:/usr/local/tomcat/lib/tomcat-redis-session-manager-2.0.0.j
+  links:
+   - redis
