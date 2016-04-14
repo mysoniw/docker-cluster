@@ -3,7 +3,7 @@
     <WatchedResource>WEB-INF/web.xml</WatchedResource>
     <Valve className="com.orangefunction.tomcat.redissessions.RedisSessionHandlerValve" />
     <Manager className="com.orangefunction.tomcat.redissessions.RedisSessionManager"
-         host="redis"
+         host="172.17.0.2"
          port="6379"
     />
 </Context>
